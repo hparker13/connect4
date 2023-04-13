@@ -1,6 +1,6 @@
 import javax.swing.*;
 
-public class Connect4 {
+public class Connect4 extends JFrame {
     private JPanel pnlMain;
     private JButton btn1;
     private JButton btn2;
@@ -52,4 +52,20 @@ public class Connect4 {
     private JLabel lbl41;
     private JLabel lbl42;
     private JLabel lblTop;
+
+
+    Connect4() {
+        this.setContentPane(pnlMain);
+
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        this.setSize(1000, 500);
+        this.setLocationRelativeTo(null);
+
+        this.setVisible(true);
+
+    }
+
+    public static void main(String[] args) {
+        Connect4 connect4 = new Connect4();
+    }
 }

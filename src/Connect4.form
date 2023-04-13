@@ -23,7 +23,8 @@
           <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Button"/>
+          <icon value="down_small_arrow_icon.png"/>
+          <text value=""/>
         </properties>
       </component>
       <component id="58492" class="javax.swing.JButton" binding="btn2">
@@ -31,7 +32,8 @@
           <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Button"/>
+          <icon value="down_small_arrow_icon.png"/>
+          <text value=""/>
         </properties>
       </component>
       <component id="6303e" class="javax.swing.JButton" binding="btn3">
@@ -39,7 +41,8 @@
           <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Button"/>
+          <icon value="down_small_arrow_icon.png"/>
+          <text value=""/>
         </properties>
       </component>
       <component id="2f846" class="javax.swing.JButton" binding="btn4">
@@ -47,7 +50,8 @@
           <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Button"/>
+          <icon value="down_small_arrow_icon.png"/>
+          <text value=""/>
         </properties>
       </component>
       <component id="a229f" class="javax.swing.JButton" binding="btn5">
@@ -55,7 +59,8 @@
           <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Button"/>
+          <icon value="down_small_arrow_icon.png"/>
+          <text value=""/>
         </properties>
       </component>
       <component id="67122" class="javax.swing.JButton" binding="btn6">
@@ -63,7 +68,8 @@
           <grid row="1" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Button"/>
+          <icon value="down_small_arrow_icon.png"/>
+          <text value=""/>
         </properties>
       </component>
       <component id="b74c8" class="javax.swing.JButton" binding="btn7">
@@ -71,7 +77,8 @@
           <grid row="1" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Button"/>
+          <icon value="down_small_arrow_icon.png"/>
+          <text value=""/>
         </properties>
       </component>
       <component id="3381" class="javax.swing.JLabel" binding="lbl12">

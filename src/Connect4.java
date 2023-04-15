@@ -71,6 +71,7 @@ public class Connect4 extends JFrame {
     private ImageIcon cirOutline;
     private Boolean inPlay = false;
     private Boolean turnP1;
+    private Boolean win = false;
 //    Circle circle;
 
 
@@ -173,7 +174,6 @@ public class Connect4 extends JFrame {
                     }
                     btnGame.setText("End Game");
                     lblTop.setText("Turn: " + getTurn());
-//                    getTurn();
                     inPlay = true;
                 }
                 btn1.setEnabled(true);
@@ -204,7 +204,7 @@ public class Connect4 extends JFrame {
                 if (col1.get(5).getIcon() != cirOutline) {
                     btn1.setEnabled(false);
                 }
-
+                check4Win();
             }
         });
         btn2.addActionListener(new ActionListener() {
@@ -225,6 +225,7 @@ public class Connect4 extends JFrame {
                 if (col2.get(5).getIcon() != cirOutline) {
                     btn2.setEnabled(false);
                 }
+                check4Win();
             }
         });
         btn3.addActionListener(new ActionListener() {
@@ -245,6 +246,7 @@ public class Connect4 extends JFrame {
                 if (col3.get(5).getIcon() != cirOutline) {
                     btn3.setEnabled(false);
                 }
+                check4Win();
             }
         });
         btn4.addActionListener(new ActionListener() {
@@ -265,6 +267,7 @@ public class Connect4 extends JFrame {
                 if (col4.get(5).getIcon() != cirOutline) {
                     btn4.setEnabled(false);
                 }
+                check4Win();
             }
         });
         btn5.addActionListener(new ActionListener() {
@@ -285,6 +288,7 @@ public class Connect4 extends JFrame {
                 if (col5.get(5).getIcon() != cirOutline) {
                     btn5.setEnabled(false);
                 }
+                check4Win();
             }
         });
         btn6.addActionListener(new ActionListener() {
@@ -305,6 +309,7 @@ public class Connect4 extends JFrame {
                 if (col6.get(5).getIcon() != cirOutline) {
                     btn6.setEnabled(false);
                 }
+                check4Win();
             }
         });
         btn7.addActionListener(new ActionListener() {
@@ -325,6 +330,7 @@ public class Connect4 extends JFrame {
                 if (col7.get(5).getIcon() != cirOutline) {
                     btn7.setEnabled(false);
                 }
+                check4Win();
             }
         });
     }
@@ -358,6 +364,190 @@ public class Connect4 extends JFrame {
            return "Player 1";
         }
         return "Player 2";
+    }
+
+    Boolean check4Win() {
+//        *** Vertical ***
+        for (int i = 0; i < 3; i++) {
+            if (!col1.get(i).getIcon().equals(cirOutline)) {
+                if (col1.get(i).getIcon().equals(col1.get(i + 1).getIcon())
+                        && col1.get(i).getIcon().equals(col1.get(i + 2).getIcon())
+                        && col1.get(i).getIcon().equals(col1.get(i + 3).getIcon()) ) {
+                    col1.get(i).setBackground(Color.gray);
+                    col1.get(i + 1).setBackground(Color.gray);
+                    col1.get(i + 2).setBackground(Color.gray);
+                    col1.get(i + 3).setBackground(Color.gray);
+                    win = true;
+                    lbl1.setBackground(Color.gray);
+                }
+            }
+        }
+        for (int i = 0; i < 3; i++) {
+            if (!col2.get(i).getIcon().equals(cirOutline)) {
+                if (col2.get(i).getIcon().equals(col2.get(i + 1).getIcon())
+                        && col2.get(i).getIcon().equals(col2.get(i + 2).getIcon())
+                        && col2.get(i).getIcon().equals(col2.get(i + 3).getIcon()) ) {
+                    win = true;
+                }
+            }
+        }
+        for (int i = 0; i < 3; i++) {
+            if (!col3.get(i).getIcon().equals(cirOutline)) {
+                if (col3.get(i).getIcon().equals(col3.get(i + 1).getIcon())
+                        && col3.get(i).getIcon().equals(col3.get(i + 2).getIcon())
+                        && col3.get(i).getIcon().equals(col3.get(i + 3).getIcon()) ) {
+                    win = true;
+                }
+            }
+        }
+        for (int i = 0; i < 3; i++) {
+            if (!col4.get(i).getIcon().equals(cirOutline)) {
+                if (col4.get(i).getIcon().equals(col4.get(i + 1).getIcon())
+                        && col4.get(i).getIcon().equals(col4.get(i + 2).getIcon())
+                        && col4.get(i).getIcon().equals(col4.get(i + 3).getIcon()) ) {
+                    win = true;
+                }
+            }
+        }
+        for (int i = 0; i < 3; i++) {
+            if (!col5.get(i).getIcon().equals(cirOutline)) {
+                if (col5.get(i).getIcon().equals(col5.get(i + 1).getIcon())
+                        && col5.get(i).getIcon().equals(col5.get(i + 2).getIcon())
+                        && col5.get(i).getIcon().equals(col5.get(i + 3).getIcon()) ) {
+                    win = true;
+                }
+            }
+        }
+        for (int i = 0; i < 3; i++) {
+            if (!col6.get(i).getIcon().equals(cirOutline)) {
+                if (col6.get(i).getIcon().equals(col6.get(i + 1).getIcon())
+                        && col6.get(i).getIcon().equals(col6.get(i + 2).getIcon())
+                        && col6.get(i).getIcon().equals(col6.get(i + 3).getIcon()) ) {
+                    win = true;
+                }
+            }
+        }
+        for (int i = 0; i < 3; i++) {
+            if (!col7.get(i).getIcon().equals(cirOutline)) {
+                if (col7.get(i).getIcon().equals(col7.get(i + 1).getIcon())
+                        && col7.get(i).getIcon().equals(col7.get(i + 2).getIcon())
+                        && col7.get(i).getIcon().equals(col7.get(i + 3).getIcon()) ) {
+                    win = true;
+                }
+            }
+        }
+//        *** Horizontal ***
+        for (int i = 0; i < 3; i++) {
+            if (!col1.get(i).getIcon().equals(cirOutline)) {
+                if (col1.get(i).getIcon().equals(col2.get(i).getIcon())
+                        && col1.get(i).getIcon().equals(col3.get(i).getIcon())
+                        && col1.get(i).getIcon().equals(col4.get(i).getIcon()) ) {
+                    win = true;
+                }
+            }
+        }
+        for (int i = 0; i < 3; i++) {
+            if (!col2.get(i).getIcon().equals(cirOutline)) {
+                if (col2.get(i).getIcon().equals(col3.get(i).getIcon())
+                        && col2.get(i).getIcon().equals(col4.get(i).getIcon())
+                        && col2.get(i).getIcon().equals(col5.get(i).getIcon()) ) {
+                    win = true;
+                }
+            }
+        }
+        for (int i = 0; i < 3; i++) {
+            if (!col3.get(i).getIcon().equals(cirOutline)) {
+                if (col3.get(i).getIcon().equals(col4.get(i).getIcon())
+                        && col3.get(i).getIcon().equals(col5.get(i).getIcon())
+                        && col3.get(i).getIcon().equals(col6.get(i).getIcon()) ) {
+                    win = true;
+                }
+            }
+        }
+        for (int i = 0; i < 3; i++) {
+            if (!col4.get(i).getIcon().equals(cirOutline)) {
+                if (col4.get(i).getIcon().equals(col5.get(i).getIcon())
+                        && col4.get(i).getIcon().equals(col6.get(i).getIcon())
+                        && col4.get(i).getIcon().equals(col7.get(i).getIcon()) ) {
+                    win = true;
+                }
+            }
+        }
+//        *** Diagonal ***
+        for (int i = 0; i < 3; i++) {
+            if (!col1.get(i).getIcon().equals(cirOutline)) {
+                if (col1.get(i).getIcon().equals(col2.get(i + 1).getIcon())
+                && col1.get(i).getIcon().equals(col3.get(i + 2).getIcon())
+                && col1.get(i).getIcon().equals(col4.get(i + 3).getIcon()) ) {
+                    win = true;
+                }
+            }
+        }
+        for (int i = 0; i < 3; i++) {
+            if (!col2.get(i).getIcon().equals(cirOutline)) {
+                if (col2.get(i).getIcon().equals(col3.get(i + 1).getIcon())
+                        && col2.get(i).getIcon().equals(col4.get(i + 2).getIcon())
+                        && col2.get(i).getIcon().equals(col5.get(i + 3).getIcon()) ) {
+                    win = true;
+                }
+            }
+        }
+        for (int i = 0; i < 3; i++) {
+            if (!col3.get(i).getIcon().equals(cirOutline)) {
+                if (col3.get(i).getIcon().equals(col4.get(i + 1).getIcon())
+                        && col3.get(i).getIcon().equals(col5.get(i + 2).getIcon())
+                        && col3.get(i).getIcon().equals(col6.get(i + 3).getIcon()) ) {
+                    win = true;
+                }
+            }
+        }
+        for (int i = 0; i < 3; i++) {
+            if (!col4.get(i).getIcon().equals(cirOutline)) {
+                if (col4.get(i).getIcon().equals(col5.get(i + 1).getIcon())
+                        && col4.get(i).getIcon().equals(col6.get(i + 2).getIcon())
+                        && col4.get(i).getIcon().equals(col7.get(i + 3).getIcon()) ) {
+                    win = true;
+                }
+            }
+        }
+        for (int i = 5; i > 1; i--) {
+            if (!col1.get(i).getIcon().equals(cirOutline)) {
+                if (col1.get(i).getIcon().equals(col2.get(i - 1).getIcon())
+                        && col1.get(i).getIcon().equals(col3.get(i - 2).getIcon())
+                        && col1.get(i).getIcon().equals(col4.get(i - 3).getIcon()) ) {
+                    win = true;
+                }
+            }
+        }
+        for (int i = 5; i > 1; i--) {
+            if (!col2.get(i).getIcon().equals(cirOutline)) {
+                if (col2.get(i).getIcon().equals(col3.get(i - 1).getIcon())
+                        && col2.get(i).getIcon().equals(col4.get(i - 2).getIcon())
+                        && col2.get(i).getIcon().equals(col5.get(i - 3).getIcon()) ) {
+                    win = true;
+                }
+            }
+        }
+        for (int i = 5; i > 1; i--) {
+            if (!col3.get(i).getIcon().equals(cirOutline)) {
+                if (col3.get(i).getIcon().equals(col4.get(i - 1).getIcon())
+                        && col3.get(i).getIcon().equals(col5.get(i - 2).getIcon())
+                        && col3.get(i).getIcon().equals(col6.get(i - 3).getIcon()) ) {
+                    win = true;
+                }
+            }
+        }
+        for (int i = 5; i > 1; i--) {
+            if (!col4.get(i).getIcon().equals(cirOutline)) {
+                if (col4.get(i).getIcon().equals(col5.get(i - 1).getIcon())
+                        && col4.get(i).getIcon().equals(col6.get(i - 2).getIcon())
+                        && col4.get(i).getIcon().equals(col7.get(i - 3).getIcon()) ) {
+                    win = true;
+                }
+            }
+        }
+        System.out.println(win);
+        return win;
     }
 
 

@@ -5,13 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fe99ba78-e2f3-4877-975e-9d8c816ce495" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Circle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/circle-orange.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/circle-outline.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/circle-purple.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/connect-four.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Connect4.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/Connect4.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Connect4.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Connect4.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

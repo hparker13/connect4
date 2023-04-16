@@ -516,24 +516,6 @@
           <text value=""/>
         </properties>
       </component>
-      <component id="19451" class="javax.swing.JLabel">
-        <constraints>
-          <grid row="8" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <font name="Trebuchet MS" size="18"/>
-          <text value="Player 1:  0"/>
-        </properties>
-      </component>
-      <component id="d5139" class="javax.swing.JLabel">
-        <constraints>
-          <grid row="8" column="5" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <font name="Trebuchet MS" size="18"/>
-          <text value="Player 2:  0"/>
-        </properties>
-      </component>
       <component id="11830" class="javax.swing.JButton" binding="btnGame">
         <constraints>
           <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
@@ -542,6 +524,33 @@
           <focusPainted value="false"/>
           <font name="Trebuchet MS"/>
           <text value="Start Game"/>
+        </properties>
+      </component>
+      <component id="19451" class="javax.swing.JLabel" binding="lblP1">
+        <constraints>
+          <grid row="8" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="Trebuchet MS" size="18"/>
+          <text value="Player 1:  0"/>
+        </properties>
+      </component>
+      <component id="d5139" class="javax.swing.JLabel" binding="lblP2">
+        <constraints>
+          <grid row="8" column="3" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="Trebuchet MS" size="18"/>
+          <text value="Player 2:  0"/>
+        </properties>
+      </component>
+      <component id="30057" class="javax.swing.JLabel" binding="lblTie">
+        <constraints>
+          <grid row="8" column="5" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="Trebuchet MS" size="18"/>
+          <text value="Tie:  0"/>
         </properties>
       </component>
     </children>

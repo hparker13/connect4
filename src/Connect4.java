@@ -58,6 +58,9 @@ public class Connect4 extends JFrame {
     private JLabel lbl42;
     private JLabel lblTop;
     private JButton btnGame;
+    private JLabel lblP1;
+    private JLabel lblP2;
+    private JLabel lblTie;
     private List<JLabel> col1;
     private List<JLabel> col2;
     private List<JLabel> col3;
@@ -65,6 +68,7 @@ public class Connect4 extends JFrame {
     private List<JLabel> col5;
     private List<JLabel> col6;
     private List<JLabel> col7;
+    private List<JLabel> lstWin;
     private ImageIcon cirPurple;
     private ImageIcon cirOrange;
     private ImageIcon iconConnect4;
@@ -72,6 +76,9 @@ public class Connect4 extends JFrame {
     private Boolean inPlay = false;
     private Boolean turnP1;
     private Boolean win = false;
+    private int winsP1 = 0;
+    private int winsP2 = 0;
+    private int numTies = 0;
 //    Circle circle;
 
 
@@ -135,6 +142,11 @@ public class Connect4 extends JFrame {
         col7.add(lbl41);
         col7.add(lbl42);
 
+        lstWin = new ArrayList<>();
+        
+        lblP1.setText("Player 1:  " + winsP1);
+        lblP2.setText("Player 2:  " + winsP2);
+
 //        * * * Set up Images with columns starting out as outline * * *
         cirOrange = new ImageIcon("src/circle-orange.png");
         cirPurple = new ImageIcon("src/circle-purple.png");
@@ -164,7 +176,8 @@ public class Connect4 extends JFrame {
         btnGame.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (!inPlay) {
+//                Commented out if statement until I decide what to do when pressing "End Game"
+//                if (!inPlay) {
                     double random = Math.random();
                     System.out.println(random);
                     if (random < 0.5) {
@@ -175,7 +188,7 @@ public class Connect4 extends JFrame {
                     btnGame.setText("End Game");
                     lblTop.setText("Turn: " + getTurn());
                     inPlay = true;
-                }
+//                }
                 btn1.setEnabled(true);
                 btn2.setEnabled(true);
                 btn3.setEnabled(true);
@@ -336,6 +349,7 @@ public class Connect4 extends JFrame {
     }
 
     void newGame() {
+        win = false;
         for (JLabel label : col1) {
             label.setIcon(cirOutline);
         }
@@ -357,6 +371,11 @@ public class Connect4 extends JFrame {
         for (JLabel label : col7) {
             label.setIcon(cirOutline);
         }
+
+        for (JLabel win : lstWin) {
+            win.setOpaque(false);
+        }
+        lstWin.clear();
     }
 
     String getTurn() {
@@ -366,19 +385,18 @@ public class Connect4 extends JFrame {
         return "Player 2";
     }
 
-    Boolean check4Win() {
+    void check4Win() {
 //        *** Vertical ***
         for (int i = 0; i < 3; i++) {
             if (!col1.get(i).getIcon().equals(cirOutline)) {
                 if (col1.get(i).getIcon().equals(col1.get(i + 1).getIcon())
                         && col1.get(i).getIcon().equals(col1.get(i + 2).getIcon())
                         && col1.get(i).getIcon().equals(col1.get(i + 3).getIcon()) ) {
-                    col1.get(i).setBackground(Color.gray);
-                    col1.get(i + 1).setBackground(Color.gray);
-                    col1.get(i + 2).setBackground(Color.gray);
-                    col1.get(i + 3).setBackground(Color.gray);
+                    lstWin.add(col1.get(i));
+                    lstWin.add(col1.get(i + 1));
+                    lstWin.add(col1.get(i + 2));
+                    lstWin.add(col1.get(i + 3));
                     win = true;
-                    lbl1.setBackground(Color.gray);
                 }
             }
         }
@@ -387,6 +405,10 @@ public class Connect4 extends JFrame {
                 if (col2.get(i).getIcon().equals(col2.get(i + 1).getIcon())
                         && col2.get(i).getIcon().equals(col2.get(i + 2).getIcon())
                         && col2.get(i).getIcon().equals(col2.get(i + 3).getIcon()) ) {
+                    lstWin.add(col2.get(i));
+                    lstWin.add(col2.get(i + 1));
+                    lstWin.add(col2.get(i + 2));
+                    lstWin.add(col2.get(i + 3));
                     win = true;
                 }
             }
@@ -396,6 +418,10 @@ public class Connect4 extends JFrame {
                 if (col3.get(i).getIcon().equals(col3.get(i + 1).getIcon())
                         && col3.get(i).getIcon().equals(col3.get(i + 2).getIcon())
                         && col3.get(i).getIcon().equals(col3.get(i + 3).getIcon()) ) {
+                    lstWin.add(col3.get(i));
+                    lstWin.add(col3.get(i + 1));
+                    lstWin.add(col3.get(i + 2));
+                    lstWin.add(col3.get(i + 3));
                     win = true;
                 }
             }
@@ -405,6 +431,10 @@ public class Connect4 extends JFrame {
                 if (col4.get(i).getIcon().equals(col4.get(i + 1).getIcon())
                         && col4.get(i).getIcon().equals(col4.get(i + 2).getIcon())
                         && col4.get(i).getIcon().equals(col4.get(i + 3).getIcon()) ) {
+                    lstWin.add(col4.get(i));
+                    lstWin.add(col4.get(i + 1));
+                    lstWin.add(col4.get(i + 2));
+                    lstWin.add(col4.get(i + 3));
                     win = true;
                 }
             }
@@ -414,6 +444,10 @@ public class Connect4 extends JFrame {
                 if (col5.get(i).getIcon().equals(col5.get(i + 1).getIcon())
                         && col5.get(i).getIcon().equals(col5.get(i + 2).getIcon())
                         && col5.get(i).getIcon().equals(col5.get(i + 3).getIcon()) ) {
+                    lstWin.add(col5.get(i));
+                    lstWin.add(col5.get(i + 1));
+                    lstWin.add(col5.get(i + 2));
+                    lstWin.add(col5.get(i + 3));
                     win = true;
                 }
             }
@@ -423,6 +457,10 @@ public class Connect4 extends JFrame {
                 if (col6.get(i).getIcon().equals(col6.get(i + 1).getIcon())
                         && col6.get(i).getIcon().equals(col6.get(i + 2).getIcon())
                         && col6.get(i).getIcon().equals(col6.get(i + 3).getIcon()) ) {
+                    lstWin.add(col6.get(i));
+                    lstWin.add(col6.get(i + 1));
+                    lstWin.add(col6.get(i + 2));
+                    lstWin.add(col6.get(i + 3));
                     win = true;
                 }
             }
@@ -432,6 +470,10 @@ public class Connect4 extends JFrame {
                 if (col7.get(i).getIcon().equals(col7.get(i + 1).getIcon())
                         && col7.get(i).getIcon().equals(col7.get(i + 2).getIcon())
                         && col7.get(i).getIcon().equals(col7.get(i + 3).getIcon()) ) {
+                    lstWin.add(col7.get(i));
+                    lstWin.add(col7.get(i + 1));
+                    lstWin.add(col7.get(i + 2));
+                    lstWin.add(col7.get(i + 3));
                     win = true;
                 }
             }
@@ -442,6 +484,10 @@ public class Connect4 extends JFrame {
                 if (col1.get(i).getIcon().equals(col2.get(i).getIcon())
                         && col1.get(i).getIcon().equals(col3.get(i).getIcon())
                         && col1.get(i).getIcon().equals(col4.get(i).getIcon()) ) {
+                    lstWin.add(col1.get(i));
+                    lstWin.add(col2.get(i));
+                    lstWin.add(col3.get(i));
+                    lstWin.add(col4.get(i));
                     win = true;
                 }
             }
@@ -451,6 +497,10 @@ public class Connect4 extends JFrame {
                 if (col2.get(i).getIcon().equals(col3.get(i).getIcon())
                         && col2.get(i).getIcon().equals(col4.get(i).getIcon())
                         && col2.get(i).getIcon().equals(col5.get(i).getIcon()) ) {
+                    lstWin.add(col2.get(i));
+                    lstWin.add(col3.get(i));
+                    lstWin.add(col4.get(i));
+                    lstWin.add(col5.get(i));
                     win = true;
                 }
             }
@@ -460,6 +510,10 @@ public class Connect4 extends JFrame {
                 if (col3.get(i).getIcon().equals(col4.get(i).getIcon())
                         && col3.get(i).getIcon().equals(col5.get(i).getIcon())
                         && col3.get(i).getIcon().equals(col6.get(i).getIcon()) ) {
+                    lstWin.add(col3.get(i));
+                    lstWin.add(col4.get(i));
+                    lstWin.add(col5.get(i));
+                    lstWin.add(col6.get(i));
                     win = true;
                 }
             }
@@ -469,6 +523,10 @@ public class Connect4 extends JFrame {
                 if (col4.get(i).getIcon().equals(col5.get(i).getIcon())
                         && col4.get(i).getIcon().equals(col6.get(i).getIcon())
                         && col4.get(i).getIcon().equals(col7.get(i).getIcon()) ) {
+                    lstWin.add(col4.get(i));
+                    lstWin.add(col5.get(i));
+                    lstWin.add(col6.get(i));
+                    lstWin.add(col7.get(i));
                     win = true;
                 }
             }
@@ -479,6 +537,10 @@ public class Connect4 extends JFrame {
                 if (col1.get(i).getIcon().equals(col2.get(i + 1).getIcon())
                 && col1.get(i).getIcon().equals(col3.get(i + 2).getIcon())
                 && col1.get(i).getIcon().equals(col4.get(i + 3).getIcon()) ) {
+                    lstWin.add(col1.get(i));
+                    lstWin.add(col2.get(i + 1));
+                    lstWin.add(col3.get(i + 2));
+                    lstWin.add(col4.get(i + 3));
                     win = true;
                 }
             }
@@ -488,6 +550,10 @@ public class Connect4 extends JFrame {
                 if (col2.get(i).getIcon().equals(col3.get(i + 1).getIcon())
                         && col2.get(i).getIcon().equals(col4.get(i + 2).getIcon())
                         && col2.get(i).getIcon().equals(col5.get(i + 3).getIcon()) ) {
+                    lstWin.add(col2.get(i));
+                    lstWin.add(col3.get(i + 1));
+                    lstWin.add(col4.get(i + 2));
+                    lstWin.add(col5.get(i + 3));
                     win = true;
                 }
             }
@@ -497,6 +563,10 @@ public class Connect4 extends JFrame {
                 if (col3.get(i).getIcon().equals(col4.get(i + 1).getIcon())
                         && col3.get(i).getIcon().equals(col5.get(i + 2).getIcon())
                         && col3.get(i).getIcon().equals(col6.get(i + 3).getIcon()) ) {
+                    lstWin.add(col3.get(i));
+                    lstWin.add(col4.get(i + 1));
+                    lstWin.add(col5.get(i + 2));
+                    lstWin.add(col6.get(i + 3));
                     win = true;
                 }
             }
@@ -506,48 +576,99 @@ public class Connect4 extends JFrame {
                 if (col4.get(i).getIcon().equals(col5.get(i + 1).getIcon())
                         && col4.get(i).getIcon().equals(col6.get(i + 2).getIcon())
                         && col4.get(i).getIcon().equals(col7.get(i + 3).getIcon()) ) {
+                    lstWin.add(col4.get(i));
+                    lstWin.add(col5.get(i + 1));
+                    lstWin.add(col6.get(i + 2));
+                    lstWin.add(col7.get(i + 3));
                     win = true;
                 }
             }
         }
-        for (int i = 5; i > 1; i--) {
-            if (!col1.get(i).getIcon().equals(cirOutline)) {
-                if (col1.get(i).getIcon().equals(col2.get(i - 1).getIcon())
-                        && col1.get(i).getIcon().equals(col3.get(i - 2).getIcon())
-                        && col1.get(i).getIcon().equals(col4.get(i - 3).getIcon()) ) {
+        for (int i = 0; i < 3; i++) {
+            if (!col7.get(i).getIcon().equals(cirOutline)) {
+                if (col7.get(i).getIcon().equals(col6.get(i + 1).getIcon())
+                        && col7.get(i).getIcon().equals(col5.get(i + 2).getIcon())
+                        && col7.get(i).getIcon().equals(col4.get(i + 3).getIcon()) ) {
+                    lstWin.add(col7.get(i));
+                    lstWin.add(col6.get(i + 1));
+                    lstWin.add(col5.get(i + 2));
+                    lstWin.add(col4.get(i + 3));
                     win = true;
                 }
             }
         }
-        for (int i = 5; i > 1; i--) {
-            if (!col2.get(i).getIcon().equals(cirOutline)) {
-                if (col2.get(i).getIcon().equals(col3.get(i - 1).getIcon())
-                        && col2.get(i).getIcon().equals(col4.get(i - 2).getIcon())
-                        && col2.get(i).getIcon().equals(col5.get(i - 3).getIcon()) ) {
+        for (int i = 0; i < 3; i++) {
+            if (!col6.get(i).getIcon().equals(cirOutline)) {
+                if (col6.get(i).getIcon().equals(col5.get(i + 1).getIcon())
+                        && col6.get(i).getIcon().equals(col4.get(i + 2).getIcon())
+                        && col6.get(i).getIcon().equals(col3.get(i + 3).getIcon()) ) {
+                    lstWin.add(col6.get(i));
+                    lstWin.add(col5.get(i + 1));
+                    lstWin.add(col4.get(i + 2));
+                    lstWin.add(col3.get(i + 3));
                     win = true;
                 }
             }
         }
-        for (int i = 5; i > 1; i--) {
-            if (!col3.get(i).getIcon().equals(cirOutline)) {
-                if (col3.get(i).getIcon().equals(col4.get(i - 1).getIcon())
-                        && col3.get(i).getIcon().equals(col5.get(i - 2).getIcon())
-                        && col3.get(i).getIcon().equals(col6.get(i - 3).getIcon()) ) {
+        for (int i = 0; i < 3; i++) {
+            if (!col5.get(i).getIcon().equals(cirOutline)) {
+                if (col5.get(i).getIcon().equals(col4.get(i + 1).getIcon())
+                        && col5.get(i).getIcon().equals(col3.get(i + 2).getIcon())
+                        && col5.get(i).getIcon().equals(col2.get(i + 3).getIcon()) ) {
+                    lstWin.add(col5.get(i));
+                    lstWin.add(col4.get(i + 1));
+                    lstWin.add(col3.get(i + 2));
+                    lstWin.add(col2.get(i + 3));
                     win = true;
                 }
             }
         }
-        for (int i = 5; i > 1; i--) {
+        for (int i = 0; i < 3; i++) {
             if (!col4.get(i).getIcon().equals(cirOutline)) {
-                if (col4.get(i).getIcon().equals(col5.get(i - 1).getIcon())
-                        && col4.get(i).getIcon().equals(col6.get(i - 2).getIcon())
-                        && col4.get(i).getIcon().equals(col7.get(i - 3).getIcon()) ) {
+                if (col4.get(i).getIcon().equals(col3.get(i + 1).getIcon())
+                        && col4.get(i).getIcon().equals(col2.get(i + 2).getIcon())
+                        && col4.get(i).getIcon().equals(col1.get(i + 3).getIcon()) ) {
+                    lstWin.add(col4.get(i));
+                    lstWin.add(col3.get(i + 1));
+                    lstWin.add(col2.get(i + 2));
+                    lstWin.add(col1.get(i + 3));
                     win = true;
                 }
             }
         }
-        System.out.println(win);
-        return win;
+        if(win) {
+            if(turnP1) {
+                lblTop.setText("Player 2 Wins!");
+                winsP2++;
+                lblP2.setText("Player 2:  " + winsP2);
+            } else {
+                lblTop.setText("Player 1 Wins!");
+                winsP1++;
+                lblP1.setText("Player 1:  " + winsP1);
+            }
+            for (JLabel win : lstWin) {
+                win.setBackground(Color.lightGray);
+                win.setOpaque(true);
+            }
+            inPlay = false;
+            btnGame.setText("New Game");
+            btn1.setEnabled(false);
+            btn2.setEnabled(false);
+            btn3.setEnabled(false);
+            btn4.setEnabled(false);
+            btn5.setEnabled(false);
+            btn6.setEnabled(false);
+            btn7.setEnabled(false);
+
+        }
+        if (!btn1.isEnabled() && !btn2.isEnabled() && !btn3.isEnabled() && !btn4.isEnabled() && !btn5.isEnabled()
+           && !btn6.isEnabled() && !btn7.isEnabled() && !win) {
+            lblTop.setText("It's a Tie!");
+            numTies++;
+            lblTie.setText("Ties:  " + numTies);
+            inPlay = false;
+            btnGame.setText("New Game");
+        }
     }
 
 

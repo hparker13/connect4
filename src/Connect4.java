@@ -479,7 +479,7 @@ public class Connect4 extends JFrame {
             }
         }
 //        *** Horizontal ***
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 6; i++) {
             if (!col1.get(i).getIcon().equals(cirOutline)) {
                 if (col1.get(i).getIcon().equals(col2.get(i).getIcon())
                         && col1.get(i).getIcon().equals(col3.get(i).getIcon())
@@ -492,7 +492,7 @@ public class Connect4 extends JFrame {
                 }
             }
         }
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 6; i++) {
             if (!col2.get(i).getIcon().equals(cirOutline)) {
                 if (col2.get(i).getIcon().equals(col3.get(i).getIcon())
                         && col2.get(i).getIcon().equals(col4.get(i).getIcon())
@@ -505,7 +505,7 @@ public class Connect4 extends JFrame {
                 }
             }
         }
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 6; i++) {
             if (!col3.get(i).getIcon().equals(cirOutline)) {
                 if (col3.get(i).getIcon().equals(col4.get(i).getIcon())
                         && col3.get(i).getIcon().equals(col5.get(i).getIcon())
@@ -518,7 +518,7 @@ public class Connect4 extends JFrame {
                 }
             }
         }
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 6; i++) {
             if (!col4.get(i).getIcon().equals(cirOutline)) {
                 if (col4.get(i).getIcon().equals(col5.get(i).getIcon())
                         && col4.get(i).getIcon().equals(col6.get(i).getIcon())
